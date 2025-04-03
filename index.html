@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #080c18;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(12, 18, 29, 0.95);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 90%;
+            border: 2px solid #42a5f5;
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #0d1833, #040814);
+            border-radius: 25px;
+            opacity: 0.8;
+            z-index: -1;
+            animation: pulseGradient 6s infinite alternate;
+        }
+
+        @keyframes pulseGradient {
+            from { opacity: 0.8; }
+            to { opacity: 0.95; }
+        }
+
+        .birthday-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            border: 2px solid #64b5f6;
+            animation: tiltAndScale 2s infinite alternate, fadeIn 1s ease;
+        }
+
+        .birthday-image:hover {
+            transform: scale(1.06);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes tiltAndScale {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(-1.5deg) scale(1.04); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+
+        .message {
+            font-size: 2.8em;
+            color: #FFD700;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+            margin-bottom: 40px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease, pulse 2s infinite alternate, expandShrink 2s infinite alternate;
+            text-align: center;
+        }
+
+       
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes expandShrink {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .signature1 {
+            font-style: italic;
+            color: #e94f12;
+            font-size: 1.8em;
+            margin-top: 25px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: slideInRight 1s ease;
+        }
+        .signature2 {
+            font-style: italic;
+            color: #db1515;
+            font-size: 1.8em;
+            margin-top: 25px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .question {
+            font-size: 2.2em;
+            color: #b0e0e6;
+            margin-top: 45px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+            animation: slideIn 1s ease, jiggle 3s infinite;
+        }
+
+        @keyframes jiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .yes-button, .no-button {
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .yes-button {
+            background: linear-gradient(to bottom, #42a5f5, #1976d2);
+            color: white;
+        }
+
+        .yes-button:hover {
+            background: linear-gradient(to bottom, #2979ff, #0d47a1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+        }
+
+        .yes-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 2s infinite;
+            background-size: 200% 200%;
+            opacity: 0;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0 0;
+                opacity: 0;
+            }
+            50% {
+                background-position: 100% 100%;
+                opacity: 0.8;
+            }
+            100% {
+                background-position: 0 0;
+                opacity: 0;
+            }
+        }
+
+        .no-button {
+            background: linear-gradient(to bottom, #d32f2f, #b71c1c);
+            color: white;
+        }
+
+        .no-button:hover {
+            background: linear-gradient(to bottom, #e53935, #9b0000);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+        }
+
+        .response-message {
+            font-size: 2em;
+            color: #ffffff;
+            margin-top: 35px;
+            font-weight: 700;
+            animation: fadeIn 1s ease, scaleIn 0.5s ease, colorChange 2s infinite alternate;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            display: none;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes colorChange {
+            from {
+                color: #ffffff;
+            }
+            to {
+                color: #b0e0e6;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px;
+                max-width: 95%;
+            }
+
+            .message {
+                font-size: 1.8em;
+            }
+
+            .birthday-image {
+                max-width: 100%;
+            }
+
+            .question {
+                font-size: 1.6em;
+            }
+
+            .button-container {
+                gap: 20px;
+            }
+
+            .yes-button, .no-button {
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+
+            .response-message {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="message" id="birthdayMessage"></div>
+        <p class="signature1">WARNING: Clicking 'No' will crash your device. Choose wisely! 😏</p>
+        <p class="signature2">Hold Up! Before You Continue, Just Remember…
+             I’m the Best Decision You’ve Ever Made! 😆❤️</p>
+        <p class="question">Do you love me😏 ?</p>
+        <div class="button-container">
+            <button class="yes-button" id="yesButton">Yes</button>
+            <button class="no-button" id="noButton">No</button>
+        </div>
+        <div class="response-message" id="responseMessage"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = [
+                    'Breaking News: You’re Officially the Luckiest Person for Having Me! 😏'
+            ];
+
+            const messageElement = document.getElementById('birthdayMessage');
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            messageElement.textContent = messages[randomIndex];
+
+            const yesButton = document.getElementById('yesButton');
+            const noButton = document.getElementById('noButton');
+            const responseMessage = document.getElementById('responseMessage');
+
+            let noButtonClicks = 0;
+
+            yesButton.addEventListener('click', function() {
+                responseMessage.textContent = "I love you too, my love! ❤️";
+                responseMessage.style.display = "block";
+                setTimeout(function() {
+                    window.location.href = 'memories.html';
+                }, 2000);
+            });
+
+            noButton.addEventListener('click', function() {
+                noButtonClicks++;
+                if (noButtonClicks === 1) {
+                    responseMessage.textContent = "Give me a chance! 🥺";
+                } else {
+                    responseMessage.textContent = "Please! 🙏";
+                }
+                responseMessage.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>

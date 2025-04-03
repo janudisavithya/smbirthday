@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #030712;
+            font-family: 'Inter', sans-serif;
+            color: #e0f7fa;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+
+        .header-section {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-size: 2.5em;
+            color: #a7f9a7;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1s ease, expandShrink 2s infinite alternate;
+            color: #FFD700;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes expandShrink {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.04);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        
+        .cake-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cake-image {
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+            animation: float 4s infinite alternate;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cake-image:hover {
+            transform: scale(1.06);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .song-section {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 10;
+            
+        }
+
+        .song-title {
+            font-size: 1.2em;
+            color: #f5d764;
+            margin-bottom: 10px;
+            color: rgb(128, 224, 248);
+        }
+
+        .song-title-2 {
+            font-size: 1em;
+            color: #f5d764;
+            margin-bottom: 10px;
+            color: rgb(192, 192, 192);
+        }
+
+        .audio-player {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        audio:hover {
+            cursor: pointer;
+        }  
+        
+        .header-section-2 {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .message {
+            font-size: 1.4em;
+            color: #d1fae5;
+            margin-bottom: 20px;
+            padding: 0 10px;
+            text-align: center;
+            color: hsl(24, 100%, 64%);
+            
+        }
+
+        .message-2 {
+            font-size: 1.4em;
+            color: #d1fae5;
+            margin-bottom: 20px;
+            padding: 0 10px;
+            text-align: center;
+            color: rgb(255, 243, 80);
+            
+        }
+
+
+
+        .next-surprise-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color:  #42a5f5;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            z-index: 100;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        .next-surprise-button:hover {
+            background-color: #4b6797;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2em;
+            }
+            .message {
+                font-size: 1.2em;
+            }
+            .cake-image {
+                width: 95%;
+            }
+            .wishes-heading {
+                font-size: 1.6em;
+            }
+            .wishes-text {
+                font-size: 1em;
+            }
+        }
+
+        /* Candle Styles */
+        .candle {
+            position: absolute;
+            width: 10px;
+            height: 30px;
+            background-color: #ffdb58;
+            border-radius: 5px 5px 0 0;
+            bottom: 100%;
+            margin-bottom: 5px;
+            opacity: 1;
+            animation:  lightCandle 2s infinite, fadeIn 0.5s ease forwards;
+            transform-origin: bottom center;
+            z-index: 11;
+        }
+
+        .candle::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: #ff6b08;
+            border-radius: 50%;
+            animation: flicker 0.5s infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes lightCandle {
+            0% {
+                box-shadow: 0 0 5px #ff6b08;
+            }
+            50% {
+                box-shadow: 0 0 10px #ff6b08;
+            }
+            100% {
+                box-shadow: 0 0 5px #ff6b08;
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Balloon Styles */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            border-radius: 50% 50% 50% 50%;
+            background-color: #f4acb7;
+            opacity: 0;
+            animation: floatUp 4s ease-out, fadeIn 0.5s ease forwards;
+            z-index: 5;
+        }
+        .balloon:nth-child(2n) {
+            background-color: #88f2e1;
+        }
+        .balloon:nth-child(3n) {
+            background-color: #f72585;
+        }
+         .balloon:nth-child(4n) {
+            background-color: #FFC0CB;
+        }
+        .balloon:nth-child(5n) {
+            background-color: #D3D3D3;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh) scale(0.1);
+            }
+            to {
+                transform: translateY(-100vh) scale(1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header-section">
+        <h1 class="page-title">Happy Birthday<br> ♥️Mukundhe!♥️</h1>
+       
+    </div>
+    <div class="song-section">
+        <h2 class="song-title">Here's a song for you:<br></h2>
+        <h2 class="song-title-2">(Play this song on before everything else)</h2>
+        <audio id="audio-player" controls class="audio-player">
+            <source src="bday song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <div class="header-section-2">
+        <p class="message"><b>This cake for you🎂. There is no way to give you cake .  Don't worry about it🙊.  Okay, I gave you a cake.  Be happy about it🤗. 
+            It is impossible to eat😅. 
+            But it doesn't matter. Anyway, it is a cake bro🎂🙊</b><br></p>
+        <p class="message-2">
+            <b>I will give you a cake for your next birthday.....🌝🤍</b>
+        </p>
+    </div>
+
+    <div class="cake-section">
+        <img src="Cake.webp" alt="Birthday Cake" class="cake-image" id="birthdayCake">
+    </div>
+
+     <a href="wish.html" class="next-surprise-button">
+        Next Surprise For You
+    </a>
+
+    <script>
+        const cakeImage = document.getElementById('birthdayCake');
+        const cakeSection = document.querySelector('.cake-section');
+        const audio = document.getElementById('birthdaySong');
+
+        window.onload = function() {
+        var audio = document.getElementById('audio-player');
+        audio.play();  // This will play the audio when the page loads
+    };
+        
+    // Remove balloons.
+        cakeImage.addEventListener('click', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+        });
+    </script>
+</body>
+</html>

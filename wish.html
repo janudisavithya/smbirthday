@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #030712;
+            font-family: 'Playfair Display', serif;
+            color: #f5f5f5;
+            padding-bottom: 70px;
+            box-sizing: border-box;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            filter: blur(12px);
+            z-index: -1;
+        }
+
+        .wish-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 95%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+        }
+
+        .rocket-image {
+            width: 400px;
+            height: auto;
+            border-radius:10px;
+            margin-bottom: 30px;
+            animation: pulse, rocketLaunch 5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes rocketLaunch {
+            0%, 20% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-25px) scale(1.05);
+            }
+            80%, 100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .birthday-heading {
+            font-size: 2em;
+            color: #FFD700;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease, tiltAndScale 2s infinite alternate;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes tiltAndScale {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(-1.5deg) scale(1.03);
+            }
+            100% {
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        .wish-message {
+            font-size: 1.2em;
+            color: #ffffff;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            text-align: center;
+            padding: 0 15px;
+            font-weight: 500;
+            animation: slideIn 1s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .msg {
+            font-size: 1.3em;
+            color: #f53636;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            text-align: center;
+            padding: 0 15px;
+            font-weight: 500;
+            animation: slideIn 1s ease;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .signature {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #e65100;
+            margin-top: 30px;
+            text-align: right;
+            animation: fadeIn 1s ease, slideInRight 1s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes slideInRight {
+            from{
+               transform: translateX(-50px);
+               opacity: 0;
+            }
+            to{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .balloon-container {
+            position: fixed;
+            top: -150px;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 65px;
+            border-radius: 50%;
+            background-color: #ffeb3b;
+            opacity: 0.7;
+            bottom: 0;
+            animation: floatUp 7s infinite, balloonPulse 2.5s infinite alternate;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        @keyframes balloonPulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        .balloon:nth-child(2) {
+            background-color: #f44336;
+            left: 40px;
+            animation-delay: 1.2s;
+        }
+
+        .balloon:nth-child(3) {
+            background-color: #8bc34a;
+            left: 80px;
+            animation-delay: 2.4s;
+        }
+
+        .balloon:nth-child(4) {
+            background-color: #03a9f4;
+            left: 120px;
+            animation-delay: 0.8s;
+        }
+
+        .balloon:nth-child(5) {
+            background-color: #9c27b0;
+            left: 160px;
+            animation-delay: 1.8s;
+        }
+
+        .balloon:nth-child(6) {
+            background-color: #ffc107;
+            left: 200px;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: 0;
+                opacity: 0;
+                transform: translateY(0);
+            }
+            20% {
+                opacity: 0.8;
+            }
+            80% {
+                transform: translateY(-850px);
+                opacity: 0.4;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+                transform: translateY(-950px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .birthday-heading {
+                font-size: 3.5em;
+            }
+            .wish-message {
+                font-size: 1.6em;
+            }
+            .signature {
+                font-size: 1.4em;
+            }
+            .wish-container {
+                padding: 30px;
+            }
+            .rocket-image {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wish-container">
+        <img src="cke2.png" alt="Rocket" class="rocket-image">
+        <h1 class="birthday-heading"> 🌟 Happy Birthday Sudu Mahaththaya! 🌟</h1>
+        <p class="wish-message">
+           
+
+            Today is such a special day because it’s the day someone truly incredible was born—you! 🎉✨ From the moment I met you, I knew you were someone extraordinary. You have a way of making the world brighter just by being in it. Your kindness, strength, and the way you carry yourself with so much grace and determination inspire me every single day. 💙
+            
+            <br>I hope today brings you as much happiness as you bring to everyone around you. I hope it’s filled with laughter, love, and everything that makes your heart light up. You deserve all the best things in life because you are one of the most amazing people I’ve ever known.
+            
+            <br><br>✨ My birthday wishes for you… ✨<br>
+            🌟 May your life be filled with endless success and happiness
+            <br>🌿 May you always stay strong, kind, and the wonderful person you are
+            <br>🌙 May every dream you chase become your reality
+            <br>☀️ May today and every day ahead be as incredible as you are
+            
+            <br><br>And because a birthday wish is even better with a song, here’s a little something just for you:
+            
+            <br><br>🎶 "You're simply the best,
+            <br>Better than all the rest,
+            <br>Better than anyone,
+            <br>Anyone I ever met..." 🎶
+            
+            <br><br> So, on this special day, celebrate yourself, because you are one of a kind! Thank you for being the amazing person you are. No matter where life takes you, know that I’ll always be cheering for you, supporting you, and wishing you all the happiness in the world.
+            
+            Happy Birthday, Sudu Mahaththaya! 🎂🎉✨ Stay awesome, always! 💙
+        </p>
+        <p class="msg"><b>(Therune na neda . Therum ganna one nam free welawaka mata call ekak dila ahaganna 😼)</b></p>
+        <p class="signature">With love , 💙J💙 </p>
+    </div>
+
+    <div class="balloon-container">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+</body>
+</html>
